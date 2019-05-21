@@ -17,38 +17,46 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark orange darken-4">
       <a class="navbar-brand" href="#">PC2-Kiosk</a>
+      <ul class="nav nav-pills nav-fill w-100" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active white-text" data-toggle="pill" href="#page-tv" role="tab">TV Controls</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white-text" data-toggle="pill" href="#page-schedule" role="tab">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white-text" data-toggle="pill" href="#page-checklist" role="tab">Checklist</a>
+        </li>
+      </ul>
     </nav>
   </header>
-
   <main class="mt-2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="tab-content pt-2 pl-1" id="pills-tabContent">
 
-    <!--Twitch stream view -->
-    <div class="container-fluid d-none" id="streamView">
-      <div id="streamPlayer"></div>
+            <!-- TV Controls View -->
+            <div class="tab-pane fade show active" id="page-tv" role="tabpanel">
+              <div id="tvHolder"></div>
+            </div>
+
+            <!-- Schedule display view-->
+            <div class="tab-pane fade" id="page-schedule" role="tabpanel">
+              <table id="scheduleTable" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+            </div>
+            <div class="tab-pane fade" id="page-checklist" role="tabpanel">
+              <p>Checklist items will live here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
 
     <!-- Timer and next match info -->
     <div class="container-fluid d-none" id="timerView">
       <div id=""></div>
-    </div>
-
-    <!-- Logo view, placeholder for when no network-->
-    <div class="container-fluid logo-view d-none" id="logoView">
-      <img src="img/logo.png" class="img-fluid" alt="Responsive image">
-    </div>
-
-    <!-- Specs view, not sure how this will be implemented yet, look at templating-->
-    <div class="container-fluid d-none" id="specsView">
-      <div id=""></div>
-    </div>
-
-    <!-- Schedule display view-->
-    <div class="container-fluid d-none" id="scheduleView">
-      <div class="row">
-        <div class="col-lg-12 col-md-12">
-          <table id="scheduleTable" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
-        </div>
-      </div>
     </div>
   </main>
   <script>
@@ -62,7 +70,42 @@
     const bsCustomFileInput = require('bs-custom-file-input');
     require('mdbootstrap/js/mdb');
   </script>
+
+  <script id="tv-template" type="text/x-handlebars-template">
+    {{#each tv}}
+    <div class="card mb-2">
+      <div class="card-body">
+        <h4 class="card-title"><a>{{this}} TV</a></h4>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="selected-{{this}}">
+          <label class="btn btn-deep-orange">
+            <input type="radio" name="rankings" id="rankings"> Event Rankings
+          </label>
+          <label class="btn btn-deep-orange">
+            <input type="radio" name="schedule" id="schedule"> Team Schedule
+          </label>
+          <label class="btn btn-deep-orange active">
+            <input type="radio" name="logo" id="logo" checked> Team Logo
+          </label>
+          <label class="btn btn-deep-orange">
+            <input type="radio" name="stream" id="stream"> Match Stream
+          </label>
+          <label class="btn btn-deep-orange">
+            <input type="radio" name="specs" id="specs"> Robot Specs
+          </label>
+          <label class="btn btn-deep-orange">
+            <input type="radio" name="timer" id="timer"> Match Timer
+          </label>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+  <script src="js/tables.js"></script>
   <script src="js/logic.js"></script>
+  <script src="js/tv-item.js"></script>
+
+
 </body>
 
 </html>
