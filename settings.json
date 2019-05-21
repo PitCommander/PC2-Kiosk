@@ -1,0 +1,10 @@
+{
+	"name": "leftTV",
+	"leaveTimeMinutes": 10,
+	"server": "127.0.0.1",
+	"port": 28015,
+	"db": "pc2",
+	"table": "eventData",
+	"timePerSlide": 10,
+	"teamsPerSlide": 21
+}

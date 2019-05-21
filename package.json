@@ -1,0 +1,49 @@
+{
+  "name": "PC2-Kiosk",
+  "version": "0.0.1",
+  "description": "A kiosk for the Pit Commander system",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/PitCommander/PC2-Kiosk",
+  "keywords": [
+    "Electron",
+    "rethink",
+    "iot",
+    "kiosk",
+    "frc"
+  ],
+  "build": {
+    "appId": "pc2.kiosk",
+    "productName": "PC2-Kiosk",
+    "directories": {
+      "buildResources": "build"
+    },
+    "publish": null
+  },
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "pchild",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.0",
+    "electron-builder": "^20.40.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bs-custom-file-input": "^1.3.2",
+    "es6-promise": "^4.2.6",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.4.1",
+    "mdbootstrap": "^4.8.1",
+    "moment": "^2.24.0",
+    "node-waves": "^0.7.6",
+    "popper.js": "^1.15.0",
+    "rethinkdb": "^2.3.3",
+    "underscore": "^1.9.1",
+    "wow.js": "^1.2.2"
+  }
+}
