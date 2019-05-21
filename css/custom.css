@@ -1,15 +1,6 @@
   .table-center {
     text-align: center;
-    font-size: 30px;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .table-left {
-    text-align: left;
-    font-size: 30px;
-    padding: 0;
-    margin: 0;
+    font-size: 20px;
   }
   
   .red {
@@ -54,20 +45,11 @@
   }
   
   table.table td {
-    padding: 0 5px 0 5px;
+    padding: 5px 5px 5px 5px;
   }
   
   table.table th {
     padding: 0 5px 0 5px;
-  }
-  
-  .logo-view {
-    padding: 80px 0 0 0;
-    margin: -15px 0 0 0;
-    background-color: #e65100;
-    height: 100vh;
-    min-height: 100vh;
-    overflow: hidden;
   }
   
   .body {
@@ -89,4 +71,23 @@
   .nav-pills .nav-link.active {
     border-radius: 9px;
     background-color: orange;
+  }
+  
+  .orange-btn {
+    background-color: #e65100;
+    color: white;
+  }
+  
+  .orange-btn.active {
+    background-color: orange;
+    color: white;
+    font-weight: bolder;
+  }
+  
+  .first-button {
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .last-button {
+    border-radius: 0 10px 10px 0;
   }

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>PitCommander2 Kiosk</title>
+
   <link rel="stylesheet" href="css/fa_all.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/mdb.min.css" rel="stylesheet">
@@ -76,36 +77,32 @@
     <div class="card mb-2">
       <div class="card-body">
         <h4 class="card-title"><a>{{this}} TV</a></h4>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="selected-{{this}}">
-          <label class="btn btn-deep-orange">
-            <input type="radio" name="rankings" id="rankings"> Event Rankings
+        <div class="btn-group btn-group-toggle container-fluid" data-toggle="buttons" id="{{this}}">
+          <label class="btn orange-btn first-button" id="rankings">
+            <input type="radio"> Event Rankings
           </label>
-          <label class="btn btn-deep-orange">
+          <label class="btn orange-btn">
             <input type="radio" name="schedule" id="schedule"> Team Schedule
           </label>
-          <label class="btn btn-deep-orange active">
-            <input type="radio" name="logo" id="logo" checked> Team Logo
+          <label class="btn orange-btn" id="logo">
+            <input type="radio"> Team Logo
           </label>
-          <label class="btn btn-deep-orange">
-            <input type="radio" name="stream" id="stream"> Match Stream
+          <label class="btn orange-btn" id="stream">
+            <input type="radio"> Match Stream
           </label>
-          <label class="btn btn-deep-orange">
-            <input type="radio" name="specs" id="specs"> Robot Specs
+          <label class="btn orange-btn" id="specs">
+            <input type="radio" name="specs"> Robot Specs
           </label>
-          <label class="btn btn-deep-orange">
-            <input type="radio" name="timer" id="timer"> Match Timer
+          <label class="btn orange-btn last-button" id="timer">
+            <input type="radio"> Match Timer
           </label>
         </div>
       </div>
     </div>
     {{/each}}
   </script>
-
   <script src="js/tables.js"></script>
   <script src="js/logic.js"></script>
-  <script src="js/tv-item.js"></script>
-
-
 </body>
 
 </html>
