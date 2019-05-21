@@ -74,28 +74,50 @@
 
   <script id="tv-template" type="text/x-handlebars-template">
     {{#each tv}}
-    <div class="card mb-2">
+    <div class="card mb-4">
       <div class="card-body">
         <h4 class="card-title"><a>{{this}} TV</a></h4>
-        <div class="btn-group btn-group-toggle container-fluid" data-toggle="buttons" id="{{this}}">
-          <label class="btn orange-btn first-button" id="rankings">
-            <input type="radio"> Event Rankings
-          </label>
-          <label class="btn orange-btn">
-            <input type="radio" name="schedule" id="schedule"> Team Schedule
-          </label>
-          <label class="btn orange-btn" id="logo">
-            <input type="radio"> Team Logo
-          </label>
-          <label class="btn orange-btn" id="stream">
-            <input type="radio"> Match Stream
-          </label>
-          <label class="btn orange-btn" id="specs">
-            <input type="radio" name="specs"> Robot Specs
-          </label>
-          <label class="btn orange-btn last-button" id="timer">
-            <input type="radio"> Match Timer
-          </label>
+        <div data-toggle="buttons">
+          <div class="btn-group btn-group-toggle container-fluid" id="{{this}}">
+            <label class="btn orange-btn first-button" id="rankings">
+              <input type="radio"> Event Rankings
+            </label>
+            <label class="btn orange-btn">
+              <input type="radio" name="schedule" id="schedule"> Team Schedule
+            </label>
+            <label class="btn orange-btn" id="logo">
+              <input type="radio"> Team Logo
+            </label>
+            <label class="btn orange-btn" id="stream">
+              <input type="radio"> Match Stream
+            </label>
+            <label class="btn orange-btn" id="specs">
+              <input type="radio" name="logs"> Log Report
+            </label>
+            <label class="btn orange-btn last-button" id="timer">
+              <input type="radio"> Match Timer
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle container-fluid pt-4" id="{{this}}">
+            <label class="btn orange-btn first-button" id="overall">
+              <input type="radio"> Overall Specs
+            </label>
+            <label class="btn orange-btn">
+              <input type="radio" id="chassis"> Chassis
+            </label>
+            <label class="btn orange-btn" id="programming">
+              <input type="radio"> Programming
+            </label>
+            <label class="btn orange-btn" id="manip1">
+              <input type="radio"> Manipulator 1
+            </label>
+            <label class="btn orange-btn" id="manip2">
+              <input type="radio" name="logs"> Manipulator 2
+            </label>
+            <label class="btn orange-btn last-button" id="outreach">
+              <input type="radio"> Outreach
+            </label>
+          </div>
         </div>
       </div>
     </div>

@@ -21,16 +21,17 @@ r.connect({
 
 //Templating stuff for element layouts
 let Handlebars = require('handlebars');
-let source = document.getElementById("tv-template").innerHTML;
-let template = Handlebars.compile(source);
+let tvSource = document.getElementById("tv-template").innerHTML;
+let tvTemplate = Handlebars.compile(tvSource);
 
 let tvs = {
   'tv': ['Left', 'Right', 'Inner']
 };
 
-let result = template(tvs);
-$('#tvHolder').append(result);
+$('#tvHolder').append(tvTemplate(tvs));
 
+
+//Event listener for screen controls, sends data to rethink
 $('label.btn.orange-btn').click(function () {
   sendScreenUpdate($(this)[0].parentElement.id, $(this)[0].id);
 })
