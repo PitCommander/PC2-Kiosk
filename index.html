@@ -7,6 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>PitCommander2 Kiosk</title>
 
+  <!--CSS imports, custom stuff last -->
   <link rel="stylesheet" href="css/fa_all.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/mdb.min.css" rel="stylesheet">
@@ -26,11 +27,15 @@
           <a class="nav-link white-text" data-toggle="pill" href="#page-schedule" role="tab">Schedule</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link white-text" data-toggle="pill" href="#page-checklist" role="tab">Checklist</a>
+          <a class="nav-link white-text" data-toggle="pill" href="#page-checklist" role="tab">Checklists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white-text" data-toggle="pill" href="#page-timer" role="tab">Match Timer</a>
         </li>
       </ul>
     </nav>
   </header>
+
   <main class="mt-2">
     <div class="container-fluid">
       <div class="row">
@@ -42,22 +47,36 @@
               <div id="tvHolder"></div>
             </div>
 
-            <!-- Schedule display view-->
+            <!-- Schedule View-->
             <div class="tab-pane fade" id="page-schedule" role="tabpanel">
               <table id="scheduleTable" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
             </div>
+
+            <!-- Checklist View -->
             <div class="tab-pane fade" id="page-checklist" role="tabpanel">
-              <p>Checklist items will live here.</p>
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h3 class="card-title"><a>Pre-Match Checklist</a></h3>
+                  <div id="matchHolder"></div>
+                  <a href="#" class="btn orange-btn float-right">Submit Checklist</a>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title"><a>Safety Checklist</a></h3>
+                  <div id="safetyHolder"></div>
+                  <a href="#" class="btn orange-btn float-right">Submit Checklist</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Match View -->
+            <div class="tab-pane fade" id="page-timer" role="tabpanel">
+              Match timer screen will live here
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-
-    <!-- Timer and next match info -->
-    <div class="container-fluid d-none" id="timerView">
-      <div id=""></div>
     </div>
   </main>
   <script>
@@ -72,11 +91,12 @@
     require('mdbootstrap/js/mdb');
   </script>
 
+  <!-- Template for TV elements, called in logic.js -->
   <script id="tv-template" type="text/x-handlebars-template">
     {{#each tv}}
     <div class="card mb-4">
       <div class="card-body">
-        <h4 class="card-title"><a>{{this}} TV</a></h4>
+        <h3 class="card-title"><a>{{this}} TV</a></h3>
         <div data-toggle="buttons">
           <div class="btn-group btn-group-toggle container-fluid" id="{{this}}">
             <label class="btn orange-btn first-button" id="rankings">
@@ -123,6 +143,18 @@
     </div>
     {{/each}}
   </script>
+
+  <script id="checklist-template" type="text/x-handlebars-template">
+    {{#each listItem}}
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="check-{{this.type}}-{{@index}}">
+      <label class="custom-control-label" for="check-{{this.type}}-{{@index}}">
+        <h4>{{this.text}}</h4></label>
+    </div>
+    {{/each}}
+  </script>
+
+  <!-- Custom JS stuff, tables handles setup for the datatable, logic is everything else -->
   <script src="js/tables.js"></script>
   <script src="js/logic.js"></script>
 </body>

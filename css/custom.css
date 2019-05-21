@@ -91,3 +91,9 @@
   .last-button {
     border-radius: 0 10px 10px 0;
   }
+  
+  .custom-control-label::before,
+  .custom-control-label::after {
+    width: 20px;
+    height: 20px
+  }
