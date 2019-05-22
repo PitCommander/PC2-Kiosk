@@ -17,6 +17,20 @@ r.connect({
   }).run(connection, function (err, cursor) {
     cursor.each(updateSchedule);
   });
+
+  //Runs when the safety checklist row updates
+  r.db(settings.db).table(settings.table).get('safetyList').changes({
+    includeInitial: true
+  }).run(connection, function (err, cursor) {
+    cursor.each(updateMatch);
+  });
+
+  //Runs when the match checklist row updates
+  r.db(settings.db).table(settings.table).get('matchList').changes({
+    includeInitial: true
+  }).run(connection, function (err, cursor) {
+    cursor.each(updateSafety);
+  });
 });
 
 //Templating stuff for element layouts
@@ -104,6 +118,14 @@ function updateSchedule(err, scheduleData) {
   table.clear();
   table.rows.add(scheduleData.new_val.value);
   table.draw();
+}
+
+function updateSafety(err, safetyData) {
+
+}
+
+function updateMatch(err, matchData) {
+
 }
 
 function sendScreenUpdate(screen, page) {
