@@ -39,7 +39,7 @@
     "handlebars": "^4.3.0",
     "jquery": "^3.4.1",
     "mdbootstrap": "^4.8.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-waves": "^0.7.6",
     "popper.js": "^1.15.0",
     "rethinkdb": "^2.3.3",
